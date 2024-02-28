@@ -1,17 +1,11 @@
+package org.reservahoteles.jpa.repositories;
+
 import jakarta.persistence.Query;
+import org.reservahoteles.jpa.entities.MunicipalityEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface MunicipalityRepository extends JpaRepository<MunicipalityEntity, Long>{
+import java.util.List;
 
-    List<MunicipalityEntity> findAll();
-
-    /* @Query(
-        value = "SELECT * FROM Municipalities WHERE name_municipality LIKE %:id_municipality%"
-    )
-    List<MunicipalityEntity> findByNameMunicipalityContaining(Long id_municipality);
-    */
-    
-    List<MunicipalityEntity> findByNameMunicipalityContaining(String name_municipality);
-
-    List<MunicipalityEntity> findByDepartmentIdDepartment(Long id_department);
-    
-}
+@Repository
+public interface MunicipalityRepository extends JpaRepository<MunicipalityEntity, Long> { }

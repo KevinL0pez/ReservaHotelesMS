@@ -1,25 +1,25 @@
-package org.marketplace.dto;
+package org.reservahoteles.dto;
 
 import lombok.Data;
 
 
 @Data
 public class UserDto {
-    private Long id_user;
+    private Long idUser;
     
-    private String number_document_user;
+    private String numberDocumentUser;
 
-    private String email_user;
+    private String emailUser;
 
-    private String password_user;
+    private String passwordUser;
 
-    private String names_user;
+    private String namesUser;
 
-    private String lastnames_user;
+    private String lastNamesUser;
 
-    private Integer phone_number;
+    private String phoneNumber;
 
-    private Boolean is_admin;
+    private Boolean isAdmin;
 
     private Boolean active;
     
