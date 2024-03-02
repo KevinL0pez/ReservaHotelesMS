@@ -1,6 +1,7 @@
 package org.reservahoteles.service.implementation;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.reservahoteles.dto.UserDto;
@@ -45,7 +46,29 @@ public class UserService implements IUserService {
 
     @Override
     @Transactional
-    public void createUser(UserDto userDto) {
+    public UserDto getUsersByDoc(String NumberDocumentUser) {
+         UserEntity user = userRepository.findByNumberDocumentUser(NumberDocumentUser);
+         if (user != null){
+                UserDto userDto = new UserDto();
+                userDto.setIdUser(user.getIdUser());
+                userDto.setNumberDocumentUser(user.getNumberDocumentUser());
+                userDto.setEmailUser(user.getEmailUser());
+                userDto.setPasswordUser(user.getPasswordUser());
+                userDto.setNamesUser(user.getNamesUser());
+                userDto.setLastNamesUser(user.getLastNamesUser());
+                userDto.setPhoneNumber(user.getPhoneNumber());
+                userDto.setIsAdmin(user.getIsAdmin());
+                userDto.setActive(user.getActive());
+                return userDto;
+         } else {
+             return null;
+         }
+
+    }
+
+    @Override
+    @Transactional
+    public void createUser(@Valid UserDto userDto) {
         UserEntity userEntity = new UserEntity();
 
         userEntity.setNumberDocumentUser(userDto.getNumberDocumentUser());

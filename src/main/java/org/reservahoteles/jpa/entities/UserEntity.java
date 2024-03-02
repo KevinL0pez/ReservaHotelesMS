@@ -1,6 +1,8 @@
 package org.reservahoteles.jpa.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,27 +17,39 @@ public class UserEntity {
     @Column(name = "id_user")
     private Long idUser;
 
-    @Column(name = "number_document_user")
+    @NotBlank(message = "Number Document is mandatory")
+    @NotNull
+    @Column(name = "number_document_user", nullable = false, unique = true)
     private String numberDocumentUser;
 
-    @Column(name = "email_user")
+    @NotBlank(message = "Email is mandatory")
+    @NotNull
+    @Column(name = "email_user", nullable = false, unique = true)
     private String emailUser;
 
-    @Column(name = "password_user")
+    @NotBlank(message = "Password is mandatory")
+    @NotNull
+    @Column(name = "password_user", nullable = false)
     private String passwordUser;
 
-    @Column(name = "names_user")
+    @NotBlank(message = "Names are mandatory")
+    @NotNull
+    @Column(name = "names_user", nullable = false)
     private String namesUser;
 
-    @Column(name = "lastnames_user")
+    @NotBlank(message = "Lastnames are mandatory")
+    @NotNull
+    @Column(name = "lastnames_user", nullable = false)
     private String lastNamesUser;
 
-    @Column(name = "phone_number")
+    @NotBlank(message = "Phone number is mandatory")
+    @NotNull
+    @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "is_admin")
+    @Column(name = "is_admin", columnDefinition = "BOOLEAN DEFAULT false")
     private Boolean isAdmin;
 
-    @Column(name = "active")
+    @Column(name = "active", columnDefinition = "BOOLEAN DEFAULT true")
     private Boolean active;
 }
