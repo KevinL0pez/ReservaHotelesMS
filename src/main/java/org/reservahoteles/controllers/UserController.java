@@ -6,13 +6,16 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 import org.apache.coyote.Response;
+import org.reservahoteles.dto.ResponseDto;
 import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.entities.UserEntity;
 import org.reservahoteles.service.IUserService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -29,18 +32,25 @@ public class UserController {
             return iUserService.getUsers();
         }
 
+        @CrossOrigin("*")
         @PostMapping("/createuser")
-        public ResponseEntity<?> createUser(@Valid @RequestBody UserDto userDto, BindingResult bindingResult) {
+        public ResponseEntity<ResponseDto> createUser(@Valid @RequestBody UserDto userDto, BindingResult bindingResult) {
+            ResponseDto response = new ResponseDto();
+
+            // Si hay errores de validación, devolver mensajes de error
             if (bindingResult.hasErrors()) {
-                // Si hay errores de validación, devolver mensajes de error
-                return ResponseEntity.badRequest().body(bindingResult.getAllErrors());
+                List<String> errors = new ArrayList<>();
+                bindingResult.getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
+                response.setMessage(errors.toString());
+                return ResponseEntity.badRequest().body(response);
             }
+
             try {
-                iUserService.createUser(userDto);
-                return ResponseEntity.ok("Creado");
-            } catch (Exception ex){
-                log.error(ex);
-                return ResponseEntity.internalServerError().body(ex);
+                response = iUserService.createUser(userDto);
+                return ResponseEntity.ok(response);
+            } catch (Exception ex) {
+                response.setMessage("Error interno al crear el usuario.");
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
             }
         }
 

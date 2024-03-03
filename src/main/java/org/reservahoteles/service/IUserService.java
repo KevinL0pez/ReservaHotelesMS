@@ -1,6 +1,7 @@
 package org.reservahoteles.service;
 
-import org.reservahoteles.dto.LoginResponseDto;
+import org.reservahoteles.dto.LoginRequestDto;
+import org.reservahoteles.dto.ResponseDto;
 import org.reservahoteles.dto.UserDto;
 
 import java.util.List;
@@ -13,10 +14,10 @@ public interface IUserService {
      */
     List<UserDto> getUsers();
 
-    void createUser(UserDto userDto);
+    ResponseDto createUser(UserDto userDto);
 
     UserDto getUsersByDoc(String NumberDocumentUser);
 
 
-    LoginResponseDto validateUserCredentials(String EmailUser, String Password);
+    ResponseDto validateUserCredentials(LoginRequestDto loginRequestDto);
 }
