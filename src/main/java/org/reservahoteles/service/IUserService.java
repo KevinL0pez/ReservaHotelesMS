@@ -1,7 +1,7 @@
 package org.reservahoteles.service;
 
+import org.reservahoteles.dto.LoginResponseDto;
 import org.reservahoteles.dto.UserDto;
-import org.reservahoteles.jpa.entities.UserEntity;
 
 import java.util.List;
 
@@ -17,4 +17,6 @@ public interface IUserService {
 
     UserDto getUsersByDoc(String NumberDocumentUser);
 
+
+    LoginResponseDto validateUserCredentials(String EmailUser, String Password);
 }

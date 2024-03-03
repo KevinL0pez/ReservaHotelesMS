@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.reservahoteles.dto.LoginResponseDto;
 import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.entities.UserEntity;
 import org.reservahoteles.jpa.repositories.UserRepository;
@@ -81,6 +82,31 @@ public class UserService implements IUserService {
         userEntity.setActive(userDto.getActive());
 
         userRepository.save(userEntity);
+    }
+
+    @Override
+    @Transactional
+    public LoginResponseDto validateUserCredentials(String EmailUser, String Password) {
+        UserEntity user = userRepository.findByEmailUser(EmailUser);
+        LoginResponseDto loginResponseDto = new LoginResponseDto();
+        if (user != null){
+            if (user.getPasswordUser().equals(Password)){
+                loginResponseDto.setError(false);
+                loginResponseDto.setMessage("Credenciales de usuario validas");
+                loginResponseDto.setStatus_code(200);
+            }
+            else{
+                loginResponseDto.setError(true);
+                loginResponseDto.setMessage("Credenciales de usuario invalidas");
+                loginResponseDto.setStatus_code(401);
+            }
+        } else{
+            loginResponseDto.setError(true);
+            loginResponseDto.setMessage("Usuario no encontrado");
+            loginResponseDto.setStatus_code(404);
+        }
+
+        return loginResponseDto;
     }
 
 }

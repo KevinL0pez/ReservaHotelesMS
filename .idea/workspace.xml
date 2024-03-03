@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/UserEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/UserService.java" afterDir="false" />
@@ -38,7 +34,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2ceWqocRQYd3DI7l0Uvn7UsKTuD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
