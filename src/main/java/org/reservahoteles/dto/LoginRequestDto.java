@@ -5,9 +5,7 @@ import lombok.Data;
 
 @Data
 public class LoginRequestDto {
-    @JsonProperty("email") // Esto asignará el campo JSON "username" al campo Java "EmailUser"
-    private String EmailUser;
-    private String Password;
-
-
+//    @JsonProperty("email") // Esto asignará el campo JSON "username" al campo Java "EmailUser"
+    private String emailUser;
+    private String password;
 }

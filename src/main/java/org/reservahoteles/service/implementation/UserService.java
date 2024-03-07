@@ -4,11 +4,13 @@ import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.reservahoteles.dto.LoginResponseDto;
+import org.reservahoteles.dto.LoginRequestDto;
+import org.reservahoteles.dto.ResponseDto;
 import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.entities.UserEntity;
 import org.reservahoteles.jpa.repositories.UserRepository;
 import org.reservahoteles.service.IUserService;
+import org.reservahoteles.utilities.PasswordBCryptUtil;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.stream.Collectors;
 public class UserService implements IUserService {
 
     private final UserRepository userRepository;
+    private final PasswordBCryptUtil passwordBCryptUtil;
 
     /**
      *
@@ -69,30 +72,48 @@ public class UserService implements IUserService {
 
     @Override
     @Transactional
-    public void createUser(@Valid UserDto userDto) {
+    public ResponseDto createUser(@Valid UserDto userDto) {
+        ResponseDto responseDto = new ResponseDto();
         UserEntity userEntity = new UserEntity();
 
-        userEntity.setNumberDocumentUser(userDto.getNumberDocumentUser());
-        userEntity.setEmailUser(userDto.getEmailUser());
-        userEntity.setPasswordUser(userDto.getPasswordUser());
-        userEntity.setNamesUser(userDto.getNamesUser());
-        userEntity.setLastNamesUser(userDto.getLastNamesUser());
-        userEntity.setPhoneNumber(userDto.getPhoneNumber());
-        userEntity.setIsAdmin(userDto.getIsAdmin());
-        userEntity.setActive(userDto.getActive());
+        UserEntity validateUser = userRepository.findEmailUser(userDto.getEmailUser());
+        if (validateUser != null) {
+            responseDto.setError(Boolean.TRUE);
+            responseDto.setMessage("El correo ingresado se encuentra registrado");
+            return responseDto;
+        }
 
-        userRepository.save(userEntity);
+        try {
+            responseDto.setError(Boolean.FALSE);
+            responseDto.setMessage("Se ha creado el usuario correctamente.");
+            userEntity.setNumberDocumentUser(userDto.getNumberDocumentUser());
+            userEntity.setEmailUser(userDto.getEmailUser());
+            userEntity.setPasswordUser(userDto.getPasswordUser());
+//            userEntity.setPasswordUser(passwordBCryptUtil.encodePassword(userDto.getPasswordUser()));
+            userEntity.setNamesUser(userDto.getNamesUser());
+            userEntity.setLastNamesUser(userDto.getLastNamesUser());
+            userEntity.setPhoneNumber(userDto.getPhoneNumber());
+            userEntity.setIsAdmin(Boolean.FALSE);
+            userEntity.setActive(Boolean.TRUE);
+
+            userRepository.save(userEntity);
+        } catch (Exception e) {
+            responseDto.setError(Boolean.TRUE);
+            responseDto.setMessage("Ha ocurrido un error interno, intenta de nuevo más tarde.");
+            log.error("Ha ocurrido un error:: ", e);
+        }
+
+        return  responseDto;
     }
 
     @Override
-    @Transactional
-    public LoginResponseDto validateUserCredentials(String EmailUser, String Password) {
-        UserEntity user = userRepository.findByEmailUser(EmailUser);
-        LoginResponseDto loginResponseDto = new LoginResponseDto();
+    public ResponseDto validateUserCredentials(LoginRequestDto loginRequestDto) {
+        UserEntity user = userRepository.findEmailUser(loginRequestDto.getEmailUser());
+        ResponseDto loginResponseDto = new ResponseDto();
         if (user != null){
-            if (user.getPasswordUser().equals(Password)){
+            if (user.getPasswordUser().equals(loginRequestDto.getPassword())){
                 loginResponseDto.setError(false);
-                loginResponseDto.setMessage("Credenciales de usuario validas");
+                loginResponseDto.setMessage("Se ha iniciado la sesión correctamente.");
                 loginResponseDto.setStatus_code(200);
             }
             else{

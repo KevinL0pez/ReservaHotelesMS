@@ -3,7 +3,7 @@ package org.reservahoteles.dto;
 import lombok.Data;
 
 @Data
-public class LoginResponseDto {
+public class ResponseDto {
 
     private Boolean error;
     private String message;
