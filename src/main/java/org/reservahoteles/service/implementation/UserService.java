@@ -109,6 +109,7 @@ public class UserService implements IUserService {
     @Override
     public ResponseDto validateUserCredentials(LoginRequestDto loginRequestDto) {
         UserEntity user = userRepository.findEmailUser(loginRequestDto.getEmailUser());
+        System.out.print(user);
         ResponseDto loginResponseDto = new ResponseDto();
         if (user != null){
             if (user.getPasswordUser().equals(loginRequestDto.getPassword())){

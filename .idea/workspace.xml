@@ -5,20 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-client.cookies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/httpRequests/http-requests-log.http" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-=======
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/LoginRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/LoginRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/LoginResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IUserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/UserService.java" afterDir="false" />
->>>>>>> 65bbce7c8d692cf98a6cea7b5ef8e231820cda6f
     </list>
     <list id="2b867c90-b627-4d1c-bdb9-5128e8088ff5" name="Changes by bcaceres" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,11 +29,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
+        &quot;isMigrated&quot;: true
+        }</component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
-}</component>
+        &quot;associatedIndex&quot;: 1
+        }</component>
   <component name="ProjectId" id="2ceWqocRQYd3DI7l0Uvn7UsKTuD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -52,44 +42,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ReservaHotelesApplication.executor": "Run",
-    "HTTP Request.All in generated-requests.executor": "Run",
-<<<<<<< HEAD
-=======
-    "HTTP Request.ReservaHotelesApplication | #1.executor": "Run",
-    "HTTP Request.ReservaHotelesApplication | #2.executor": "Run",
->>>>>>> 65bbce7c8d692cf98a6cea7b5ef8e231820cda6f
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.ReservaHotelesApplication.executor": "Run",
-    "git-widget-placeholder": "dev",
-    "kotlin-language-version-configured": "true",
-<<<<<<< HEAD
-    "last_opened_file_path": "C:/Users/Kevin Andres Usama/Documents/SpringBoot/demo",
-=======
-    "last_opened_file_path": "C:/Users/Kevin Andres Usama/Documents/EAM/Aplicaciones Empresariales/Proyecto Reserva Hoteles/Back Proyecto/ReservaHotelesMS",
->>>>>>> 65bbce7c8d692cf98a6cea7b5ef8e231820cda6f
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ReservaHotelesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.ReservaHotelesApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.ReservaHotelesApplication | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.ReservaHotelesApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Kevin Andres Usama/Documents/EAM/Aplicaciones Empresariales/Proyecto Reserva Hoteles/Back Proyecto/ReservaHotelesMS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-<<<<<<< HEAD
+}</component>
   <component name="RunManager" selected="Application.ReservaHotelesApplication">
-=======
-  <component name="RunManager" selected="Spring Boot.ReservaHotelesApplication">
->>>>>>> 65bbce7c8d692cf98a6cea7b5ef8e231820cda6f
     <configuration name="ReservaHotelesApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.reservahoteles.ReservaHotelesApplication" />
       <module name="ReservaHotelesMs" />
@@ -128,9 +107,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ReservaHotelesApplication" />
-        <item itemvalue="HTTP Request.ReservaHotelesApplication | #1" />
-        <item itemvalue="HTTP Request.ReservaHotelesApplication | #2" />
         <item itemvalue="Application.ReservaHotelesApplication" />
       </list>
     </recent_temporary>

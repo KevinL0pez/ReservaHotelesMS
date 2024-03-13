@@ -42,9 +42,8 @@ public class UserController {
                 List<String> errors = new ArrayList<>();
                 bindingResult.getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
                 response.setMessage(errors.toString());
-                return ResponseEntity.badRequest().body(response);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
             }
-
             try {
                 response = iUserService.createUser(userDto);
                 return ResponseEntity.ok(response);
