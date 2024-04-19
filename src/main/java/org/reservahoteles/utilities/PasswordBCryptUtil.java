@@ -1,6 +1,6 @@
 package org.reservahoteles.utilities;
 
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class PasswordBCryptUtil {
 
-//    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
     /**
@@ -18,8 +18,8 @@ public class PasswordBCryptUtil {
      * @param password la contraseña a codificar
      * @return la contraseña codificada
     */
-//    public String encodePassword(String password) {
-//        return encoder.encode(password);
-//    }
+    public String encodePassword(String password) {
+        return encoder.encode(password);
+    }
 
 }

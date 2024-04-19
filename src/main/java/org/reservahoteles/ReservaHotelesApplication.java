@@ -15,8 +15,8 @@ public class ReservaHotelesApplication {
         SpringApplication.run(ReservaHotelesApplication.class, args);
     }
 
-    @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
+//    @Bean
+//    public RestTemplate restTemplate() {
+//        return new RestTemplate();
+//    }
 }

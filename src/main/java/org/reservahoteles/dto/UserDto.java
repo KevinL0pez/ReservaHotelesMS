@@ -3,6 +3,7 @@ package org.reservahoteles.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
+import org.reservahoteles.enums.Role;
 
 
 @Data
@@ -32,6 +33,10 @@ public class UserDto {
     @NotBlank(message = "Phone number is mandatory")
     @NotNull
     private String phoneNumber;
+
+    @NotBlank(message = "Role is mandatory")
+    @NotNull
+    private Role role;
 
     private Boolean isAdmin;
 
