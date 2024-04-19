@@ -7,6 +7,7 @@ import org.reservahoteles.dto.DepartmentDto;
 import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.repositories.DepartmentRepository;
 import org.reservahoteles.service.IDepartmentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
 @Service
 public class DepartmentService implements IDepartmentService {
 
+    @Autowired
     private final DepartmentRepository departmentRepository;
 
 

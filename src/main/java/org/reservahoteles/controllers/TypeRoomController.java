@@ -2,8 +2,8 @@ package org.reservahoteles.controllers;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.reservahoteles.dto.DepartmentDto;
-import org.reservahoteles.service.IDepartmentService;
+import org.reservahoteles.dto.TypeRoomDto;
+import org.reservahoteles.service.ITypeRoomService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,18 +12,15 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/departments")
+@RequestMapping("/typeRooms")
 @Log4j2
-public class DepartmentController {
+public class TypeRoomController {
 
-    private final IDepartmentService iDepartmentService;
+    private final ITypeRoomService iTypeRoomService;
 
-
-    @GetMapping("/getdepartments/all")
-    public List<DepartmentDto> getListDepartments() {
-        return iDepartmentService.getDepartments();
+    @GetMapping("/getTypeRooms/all")
+    public List<TypeRoomDto> getListTypeRooms() {
+        return iTypeRoomService.getTypeRooms();
     }
-
-
 
 }

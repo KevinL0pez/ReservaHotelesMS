@@ -48,8 +48,8 @@ public class UserEntity {
     private String phoneNumber;
 
     @Column(name = "is_admin", columnDefinition = "BOOLEAN DEFAULT false")
-    private Boolean isAdmin;
+    private Boolean isAdmin = false;
 
     @Column(name = "active", columnDefinition = "BOOLEAN DEFAULT true")
-    private Boolean active;
+    private Boolean active = true;
 }

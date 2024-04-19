@@ -10,7 +10,9 @@ import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.entities.UserEntity;
 import org.reservahoteles.jpa.repositories.UserRepository;
 import org.reservahoteles.service.IUserService;
-import org.reservahoteles.utilities.PasswordBCryptUtil;
+//import org.reservahoteles.utilities.PasswordBCryptUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +23,9 @@ import java.util.stream.Collectors;
 @Service
 public class UserService implements IUserService {
 
+    @Autowired
     private final UserRepository userRepository;
-    private final PasswordBCryptUtil passwordBCryptUtil;
+    //private final PasswordBCryptUtil passwordBCryptUtil;
 
     /**
      *
@@ -80,6 +83,7 @@ public class UserService implements IUserService {
         if (validateUser != null) {
             responseDto.setError(Boolean.TRUE);
             responseDto.setMessage("El correo ingresado se encuentra registrado");
+            responseDto.setStatus_code(HttpStatus.CONFLICT.value());
             return responseDto;
         }
 

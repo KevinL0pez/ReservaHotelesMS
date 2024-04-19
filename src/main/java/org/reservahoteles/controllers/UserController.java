@@ -3,12 +3,9 @@ package org.reservahoteles.controllers;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
-import org.apache.coyote.Response;
 import org.reservahoteles.dto.ResponseDto;
 import org.reservahoteles.dto.UserDto;
-import org.reservahoteles.jpa.entities.UserEntity;
 import org.reservahoteles.service.IUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -42,13 +39,16 @@ public class UserController {
                 List<String> errors = new ArrayList<>();
                 bindingResult.getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
                 response.setMessage(errors.toString());
+                response.setStatus_code(HttpStatus.BAD_REQUEST.value());
+                response.setError(true);
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
             }
             try {
                 response = iUserService.createUser(userDto);
                 return ResponseEntity.ok(response);
             } catch (Exception ex) {
-                response.setMessage("Error interno al crear el usuario.");
+                response.setMessage("Internal error trying to create the user.");
+                response.setStatus_code(HttpStatus.INTERNAL_SERVER_ERROR.value());
                 return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
             }
         }
