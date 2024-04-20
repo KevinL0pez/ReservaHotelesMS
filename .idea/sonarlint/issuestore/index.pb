@@ -39,3 +39,14 @@ k
 ;src/main/java/org/reservahoteles/service/IHotelService.java,1\7\171c751877bdd08e9fe46e825f79039d1089e27e
 y
 Isrc/main/java/org/reservahoteles/service/implementation/HotelService.java,7\5\7587ce42cf4b45d51e6ec3ec323495a8fffadb0e
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
+o
+?src/main/java/org/reservahoteles/ReservaHotelesApplication.java,b\8\b87b0df405627160895b882ba2042fe1253f23cd
+}
+Msrc/main/java/org/reservahoteles/service/implementation/HotelRoomService.java,2\e\2e6f7450bbe22dba45bc85575affe304f0b6b003
+n
+>src/main/java/org/reservahoteles/jpa/entities/TokenEntity.java,3\c\3c8aad90c1247568ed1b94641cd6e3529757d238
+v
+Fsrc/main/java/org/reservahoteles/jpa/repositories/TokenRepository.java,3\f\3f0803bcd6bf2831fe7586b22c07c245debd6871

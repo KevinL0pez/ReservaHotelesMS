@@ -19,6 +19,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -105,6 +106,10 @@ public class AuthenticationService implements IAuthenticationService {
             return;
         }
 
+        for (TokenEntity token : validTokens) {
+            token.setLoggedOutDate(new Date());
+        }
+
         validTokens.forEach(t -> t.setLoggedOut(true));
         tokenRepository.saveAll(validTokens);
     }
@@ -112,8 +117,9 @@ public class AuthenticationService implements IAuthenticationService {
     private void saveUserToken(String jwt, UserEntity user) {
         TokenEntity token = new TokenEntity();
         token.setToken(jwt);
-        token.setLoggedOut(false);
+        token.setLoggedOut(Boolean.FALSE);
         token.setUser(user);
+        token.setRegisteredTokenDate(new Date());
         tokenRepository.save(token);
     }
 }

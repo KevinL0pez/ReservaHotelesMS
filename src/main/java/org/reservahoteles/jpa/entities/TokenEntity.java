@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @NoArgsConstructor
 @Getter
 @Setter
@@ -26,4 +28,10 @@ public class TokenEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @Column(name = "registered_token_date")
+    private Date registeredTokenDate;
+
+    @Column(name = "loggedOutDate")
+    private Date loggedOutDate;
 }

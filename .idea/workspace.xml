@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/4/14f869a7f06f02efbaeabeb5664672dfe56b7ee5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c74ebc95fc0cbdde804f1816965abdae4f1e4b0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5ab3e8023433a7994a7db6af54e0c2070068acc9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4365c181593d6d4a278af8799be5e87f553d9e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/493221eb0a05abb67ca66e44c8114d68705f02f6" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/493221eb0a05abb67ca66e44c8114d68705f02f6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/8/e8bcd3cd0003a95b956ad0fa1aedd40dc2ef8eaf" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/8/e8bcd3cd0003a95b956ad0fa1aedd40dc2ef8eaf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/4/14f869a7f06f02efbaeabeb5664672dfe56b7ee5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/c/3c74ebc95fc0cbdde804f1816965abdae4f1e4b0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/a/5ab3e8023433a7994a7db6af54e0c2070068acc9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/4/c4365c181593d6d4a278af8799be5e87f553d9e6" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/TokenEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/TokenEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelRoomService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelService.java" afterDir="false" />
     </list>
     <list id="2b867c90-b627-4d1c-bdb9-5128e8088ff5" name="Changes by bcaceres" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -158,6 +157,9 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -168,7 +170,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java</url>
-          <line>75</line>
+          <line>76</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -183,12 +185,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java</url>
-          <line>82</line>
+          <line>83</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java</url>
-          <line>37</line>
+          <line>38</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

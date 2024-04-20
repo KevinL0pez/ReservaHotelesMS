@@ -90,7 +90,7 @@ public class HotelRoomService implements IHotelRoomService {
         if (hotelEntityOptional.isEmpty()){
             responseDto.setMessage("Hotel not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatus_code(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
             return responseDto;
         }
         HotelEntity hotel = hotelEntityOptional.get();
@@ -100,7 +100,7 @@ public class HotelRoomService implements IHotelRoomService {
         if (typeRoomEntityOptional.isEmpty()) {
             responseDto.setMessage("Type room not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatus_code(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
             return responseDto;
         }
 
@@ -119,7 +119,7 @@ public class HotelRoomService implements IHotelRoomService {
 
         responseDto.setMessage("Hotel Room created successfully");
         responseDto.setError(Boolean.FALSE);
-        responseDto.setStatus_code(HttpStatus.CREATED.value());
+        responseDto.setStatusCode(HttpStatus.CREATED.value());
 
         return responseDto;
     }

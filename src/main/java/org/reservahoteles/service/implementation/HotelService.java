@@ -85,7 +85,7 @@ public class HotelService implements IHotelService {
         if (municipalityHotelOptional.isEmpty()){
             responseDto.setMessage("Municipality not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatus_code(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
             return responseDto;
         }
         MunicipalityEntity municipality = municipalityHotelOptional.get();
@@ -98,7 +98,7 @@ public class HotelService implements IHotelService {
         if (hotel_validation != null) {
             responseDto.setMessage("Hotel already exists");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatus_code(HttpStatus.CONFLICT.value());
+            responseDto.setStatusCode(HttpStatus.CONFLICT.value());
             return responseDto;
         }
 
@@ -114,7 +114,7 @@ public class HotelService implements IHotelService {
         if (departmentHotelOptional.isEmpty()) {
             responseDto.setMessage("Department not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatus_code(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
             return responseDto;
         }
 
@@ -126,7 +126,7 @@ public class HotelService implements IHotelService {
 
         responseDto.setMessage("Hotel created successfully");
         responseDto.setError(Boolean.FALSE);
-        responseDto.setStatus_code(HttpStatus.CREATED.value());
+        responseDto.setStatusCode(HttpStatus.CREATED.value());
 
 
         return responseDto;
