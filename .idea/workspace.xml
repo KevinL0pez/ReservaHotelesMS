@@ -5,20 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/4/14f869a7f06f02efbaeabeb5664672dfe56b7ee5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/c/3c74ebc95fc0cbdde804f1816965abdae4f1e4b0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/5/a/5ab3e8023433a7994a7db6af54e0c2070068acc9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/c/4/c4365c181593d6d4a278af8799be5e87f553d9e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/4/14f869a7f06f02efbaeabeb5664672dfe56b7ee5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/c/3c74ebc95fc0cbdde804f1816965abdae4f1e4b0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/5/a/5ab3e8023433a7994a7db6af54e0c2070068acc9" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/c/4/c4365c181593d6d4a278af8799be5e87f553d9e6" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/LoginRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/LoginRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/UserDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IUserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/utilities/PasswordBCryptUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/utilities/PasswordBCryptUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="2b867c90-b627-4d1c-bdb9-5128e8088ff5" name="Changes by bcaceres" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +76,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.37126437",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -154,6 +151,7 @@
       <workItem from="1712877429261" duration="1573000" />
       <workItem from="1712974319589" duration="6065000" />
       <workItem from="1713482048014" duration="3825000" />
+      <workItem from="1713641524648" duration="72000" />
     </task>
     <servers />
   </component>

@@ -17,17 +17,9 @@ Gsrc/main/java/org/reservahoteles/service/implementation/JwtService.java,4\9\49
 Rsrc/main/java/org/reservahoteles/service/implementation/AuthenticationService.java,0\3\03a13aa0bed71426580165b93f6b240d53b6b40f
 t
 Dsrc/main/java/org/reservahoteles/service/IAuthenticationService.java,7\0\70c00c69103d29ff5edb279d17a66adb96e3c703
-q
-Asrc/main/java/org/reservahoteles/controllers/LoginController.java,1\4\14f869a7f06f02efbaeabeb5664672dfe56b7ee5
 a
 1src/main/java/org/reservahoteles/dto/UserDto.java,4\c\4c713ee3f0268a4a83aa5c040b20318505f0c1ec
-p
-@src/main/java/org/reservahoteles/controllers/UserController.java,5\a\5ab3e8023433a7994a7db6af54e0c2070068acc9
 e
 5src/main/java/org/reservahoteles/dto/ResponseDto.java,4\3\43ce547c416546dbb8f447959df4af3bec095f90
-x
-Hsrc/main/java/org/reservahoteles/service/implementation/UserService.java,3\c\3c74ebc95fc0cbdde804f1816965abdae4f1e4b0
-j
-:src/main/java/org/reservahoteles/service/IUserService.java,c\4\c4365c181593d6d4a278af8799be5e87f553d9e6
 r
 Bsrc/main/java/org/reservahoteles/utilities/PasswordBCryptUtil.java,5\5\55a18f3955fc0212e4e745759227264b1e3c4391
