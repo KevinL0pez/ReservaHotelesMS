@@ -1,6 +1,7 @@
 package org.reservahoteles.jpa.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,5 +25,6 @@ public class DepartmentEntity {
     private String nameDepartment;
 
     @OneToMany(mappedBy = "department")
+    @JsonIgnore
     private List<MunicipalityEntity> municipalities;
 }

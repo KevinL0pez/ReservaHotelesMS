@@ -3,6 +3,7 @@ package org.reservahoteles.jpa.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @NoArgsConstructor
 @Data
@@ -22,5 +23,7 @@ public class MunicipalityEntity {
 
     @ManyToOne
     @JoinColumn(name = "id_department")
+    //JsonIgnore is required, to avoid infinite recursion.
+    @JsonIgnore
     private DepartmentEntity department;
 }
