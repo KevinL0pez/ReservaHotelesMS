@@ -1,5 +1,6 @@
 package org.reservahoteles.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,6 +25,7 @@ public class HotelController {
     private final IHotelService iHotelService;
 
     @GetMapping("/gethotels/all")
+    @SecurityRequirement(name = "bearerAuth")
     public List<HotelResponseDto> getListHotels() {
         return iHotelService.getHotels();
     }
