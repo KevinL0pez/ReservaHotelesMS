@@ -1,5 +1,6 @@
 package org.reservahoteles.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.reservahoteles.dto.MunicipalityDto;
@@ -21,11 +22,13 @@ public class MunicipalityController {
 
 
     @GetMapping("/getmunicipalities/all")
+    @SecurityRequirement(name = "bearerAuth")
     public List<MunicipalityDto> getListDepartments() {
         return iMunicipalityService.getMunicipalities();
     }
 
     @GetMapping("/getmunicipalities/department")
+    @SecurityRequirement(name = "bearerAuth")
     public List<MunicipalityDto> getListMunicipalitiesByDepartment(@RequestParam Long idDepartment) {
         return iMunicipalityService.getMunicipalitiesByDepartment(idDepartment);
     }

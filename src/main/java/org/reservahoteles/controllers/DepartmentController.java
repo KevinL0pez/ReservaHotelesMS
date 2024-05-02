@@ -1,5 +1,6 @@
 package org.reservahoteles.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.reservahoteles.dto.DepartmentDto;
@@ -20,6 +21,7 @@ public class DepartmentController {
 
 
     @GetMapping("/getdepartments/all")
+    @SecurityRequirement(name = "bearerAuth")
     public List<DepartmentDto> getListDepartments() {
         return iDepartmentService.getDepartments();
     }

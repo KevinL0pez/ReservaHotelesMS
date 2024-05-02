@@ -31,17 +31,20 @@ public class HotelController {
     }
 
     @GetMapping("/gethotels/active")
+    @SecurityRequirement(name = "bearerAuth")
     public List<HotelResponseDto> getListActiveHotels() {
         return iHotelService.getActiveHotels();
     }
 
     @GetMapping("/gethotels/department")
+    @SecurityRequirement(name = "bearerAuth")
     public List<HotelResponseDto> getListHotelsByDepartment(@RequestParam Long idDepartment) {
 
         return iHotelService.getActiveHotelsByDepartment(idDepartment);
     }
 
     @GetMapping("/gethotels/municipality")
+    @SecurityRequirement(name = "bearerAuth")
     public List<HotelResponseDto> getListHotelsByMunicipality(@RequestParam Long idMunicipality) {
 
         return iHotelService.getActiveHotelsByMunicipality(idMunicipality);
@@ -49,6 +52,7 @@ public class HotelController {
 
     @CrossOrigin("*")
     @PostMapping("/createhotel")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto> createHotel(@Valid @RequestBody HotelRequestDto hotelRequestDto, BindingResult bindingResult) {
 
         ResponseDto response = new ResponseDto();
