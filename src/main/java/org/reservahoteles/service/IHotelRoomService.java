@@ -13,5 +13,5 @@ public interface IHotelRoomService {
 
     List<HotelRoomResponseDto> getHotelRoomsByHotel(Long IdHotel);
 
-    ResponseDto createHotelRoom(HotelRoomRequestDto hotelRoomRequestDto);
+    ResponseDto<HotelRoomRequestDto> createHotelRoom(HotelRoomRequestDto hotelRoomRequestDto);
 }

@@ -74,8 +74,8 @@ public class HotelService implements IHotelService {
     }
 
     @Override
-    public ResponseDto createHotel(@Valid HotelRequestDto hotelRequestDto) {
-        ResponseDto responseDto = new ResponseDto();
+    public ResponseDto<HotelRequestDto> createHotel(@Valid HotelRequestDto hotelRequestDto) {
+        ResponseDto<HotelRequestDto> responseDto = new ResponseDto<>();
         HotelEntity hotel = new HotelEntity();
 
         Long idMunicipalityHotel = hotelRequestDto.getIdMunicipality();
@@ -85,7 +85,7 @@ public class HotelService implements IHotelService {
         if (municipalityHotelOptional.isEmpty()){
             responseDto.setMessage("Municipality not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
             return responseDto;
         }
         MunicipalityEntity municipality = municipalityHotelOptional.get();
@@ -98,7 +98,7 @@ public class HotelService implements IHotelService {
         if (hotel_validation != null) {
             responseDto.setMessage("Hotel already exists");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatusCode(HttpStatus.CONFLICT.value());
+            responseDto.setStatusCode(HttpStatus.CONFLICT);
             return responseDto;
         }
 
@@ -114,7 +114,7 @@ public class HotelService implements IHotelService {
         if (departmentHotelOptional.isEmpty()) {
             responseDto.setMessage("Department not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
             return responseDto;
         }
 
@@ -126,7 +126,8 @@ public class HotelService implements IHotelService {
 
         responseDto.setMessage("Hotel created successfully");
         responseDto.setError(Boolean.FALSE);
-        responseDto.setStatusCode(HttpStatus.CREATED.value());
+        responseDto.setStatusCode(HttpStatus.CREATED);
+        responseDto.setData(hotelRequestDto);
 
 
         return responseDto;

@@ -25,37 +25,66 @@ public class HotelRoomController {
 
     @GetMapping("/getHotelRooms/all")
     @SecurityRequirement(name = "bearerAuth")
-    public List<HotelRoomResponseDto> getListHotelRooms() {
-        return iHotelRoomService.getHotelRooms();
+    public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRooms() {
+        List<HotelRoomResponseDto> hotelRooms = iHotelRoomService.getHotelRooms();
+        ResponseDto<List<HotelRoomResponseDto>> responseDto = new ResponseDto<>();
+
+        if (hotelRooms.isEmpty()){
+            responseDto.setMessage("Hotel Rooms not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotel Rooms found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hotelRooms);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
     }
 
     @GetMapping("/getHotelRooms/hotel")
     @SecurityRequirement(name = "bearerAuth")
-    public List<HotelRoomResponseDto> getListHotelRoomsByHotel(@RequestParam Long idHotel) {
+    public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRoomsByHotel(@RequestParam Long idHotel) {
 
-        return iHotelRoomService.getHotelRoomsByHotel(idHotel);
+        List<HotelRoomResponseDto> hotelRooms = iHotelRoomService.getHotelRoomsByHotel(idHotel);
+
+        ResponseDto<List<HotelRoomResponseDto>> responseDto = new ResponseDto<>();
+
+        if (hotelRooms == null || hotelRooms.isEmpty()){
+            responseDto.setMessage("Hotel Rooms not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotel Rooms found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hotelRooms);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
     }
 
     @CrossOrigin("*")
     @PostMapping("/createHotelRoom")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<ResponseDto> createHotelRoom(@Valid @RequestBody HotelRoomRequestDto hotelRoomRequestDto, BindingResult bindingResult) {
+    public ResponseEntity<ResponseDto<HotelRoomRequestDto>> createHotelRoom(@Valid @RequestBody HotelRoomRequestDto hotelRoomRequestDto, BindingResult bindingResult) {
 
-        ResponseDto response = new ResponseDto();
+        ResponseDto<HotelRoomRequestDto> response = new ResponseDto<>();
 
         // Si hay errores de validación, devolver mensajes de error
         if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
             bindingResult.getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
             response.setMessage(errors.toString());
-            response.setStatusCode(HttpStatus.BAD_REQUEST.value());
+            response.setStatusCode(HttpStatus.BAD_REQUEST);
             response.setError(true);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }
 
 
         response = iHotelRoomService.createHotelRoom(hotelRoomRequestDto);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(response.getStatusCode()).body(response);
 
     }
 }

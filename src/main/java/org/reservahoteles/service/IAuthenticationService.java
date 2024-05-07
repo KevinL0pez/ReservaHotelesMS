@@ -7,6 +7,6 @@ import org.reservahoteles.dto.UserDto;
 import org.reservahoteles.jpa.entities.UserEntity;
 
 public interface IAuthenticationService {
-    ResponseDto register(UserDto userDto);
-    ResponseDto authenticate(LoginRequestDto request);
+    ResponseDto<UserDto> register(UserDto userDto);
+    ResponseDto<LoginRequestDto> authenticate(LoginRequestDto request);
 }

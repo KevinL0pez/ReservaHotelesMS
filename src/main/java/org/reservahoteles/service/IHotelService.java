@@ -10,7 +10,7 @@ public interface IHotelService {
 
     List<HotelResponseDto> getActiveHotels();
 
-    ResponseDto createHotel(HotelRequestDto hotelRequestDto);
+    ResponseDto<HotelRequestDto> createHotel(HotelRequestDto hotelRequestDto);
 
     List<HotelResponseDto> getActiveHotelsByDepartment(Long idDepartment);
 
