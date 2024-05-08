@@ -6,19 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/MunicipalityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/MunicipalityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/TypeRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/ResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/ResponseDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IAuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IAuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelRoomService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelRoomService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelService.java" afterDir="false" />
     </list>
     <list id="2b867c90-b627-4d1c-bdb9-5128e8088ff5" name="Changes by bcaceres" comment="" />
     <option name="SHOW_DIALOG" value="false" />
