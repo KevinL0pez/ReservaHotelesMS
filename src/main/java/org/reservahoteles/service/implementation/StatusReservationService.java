@@ -17,6 +17,12 @@ public class StatusReservationService implements IStatusReservationService {
     private final StatusReservationRepository statusReservationRepository;
     @Override
     public List<StatusReservationDto> getStatusReservations() {
-        return null;
+        return statusReservationRepository.findAll().stream()
+                .map(statusReservation -> {
+                    StatusReservationDto statusReservationDto = new StatusReservationDto();
+                    statusReservationDto.setIdStatusReservation(statusReservation.getIdStatusReservation());
+                    statusReservationDto.setTitleStatusReservation(statusReservation.getTitleStatusReservation());
+                    return statusReservationDto;
+                }).collect(java.util.stream.Collectors.toList());
     }
 }
