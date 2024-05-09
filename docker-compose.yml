@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  spring-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+
+  adminer:
+    image: adminer
+    container_name: adminer_spring
+    restart: always
+    ports:
+      - 8080:8080
+    networks:
+      - conexion_from_spring
+
+networks:
+  conexion_from_spring:
+    driver : bridge
+    name: conexion_from_spring

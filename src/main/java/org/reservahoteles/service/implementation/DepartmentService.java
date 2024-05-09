@@ -17,13 +17,10 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Service
 public class DepartmentService implements IDepartmentService {
-
-    @Autowired
+    
     private final DepartmentRepository departmentRepository;
 
-
     @Override
-    @Transactional
     public List<DepartmentDto> getDepartments() {
         return departmentRepository.findAll().stream()
                 .map(department -> {
@@ -34,7 +31,7 @@ public class DepartmentService implements IDepartmentService {
                     departmentDto.setMunicipalities(department.getMunicipalities());
                     return departmentDto;
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
 }
