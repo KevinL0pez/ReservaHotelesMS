@@ -79,8 +79,8 @@ public class HotelRoomService implements IHotelRoomService {
     }
 
     @Override
-    public ResponseDto createHotelRoom(HotelRoomRequestDto hotelRoomRequestDto) {
-        ResponseDto responseDto = new ResponseDto();
+    public ResponseDto<HotelRoomRequestDto> createHotelRoom(HotelRoomRequestDto hotelRoomRequestDto) {
+        ResponseDto<HotelRoomRequestDto> responseDto = new ResponseDto<>();
         HotelRoomEntity hotelRoom = new HotelRoomEntity();
 
         Long idHotel = hotelRoomRequestDto.getIdHotel();
@@ -90,7 +90,7 @@ public class HotelRoomService implements IHotelRoomService {
         if (hotelEntityOptional.isEmpty()){
             responseDto.setMessage("Hotel not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
             return responseDto;
         }
         HotelEntity hotel = hotelEntityOptional.get();
@@ -100,7 +100,7 @@ public class HotelRoomService implements IHotelRoomService {
         if (typeRoomEntityOptional.isEmpty()) {
             responseDto.setMessage("Type room not found");
             responseDto.setError(Boolean.TRUE);
-            responseDto.setStatusCode(HttpStatus.NOT_FOUND.value());
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
             return responseDto;
         }
 
@@ -119,7 +119,8 @@ public class HotelRoomService implements IHotelRoomService {
 
         responseDto.setMessage("Hotel Room created successfully");
         responseDto.setError(Boolean.FALSE);
-        responseDto.setStatusCode(HttpStatus.CREATED.value());
+        responseDto.setStatusCode(HttpStatus.CREATED);
+        responseDto.setData(hotelRoomRequestDto);
 
         return responseDto;
     }

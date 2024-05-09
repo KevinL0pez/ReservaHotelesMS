@@ -35,14 +35,21 @@ public class AuthenticationService implements IAuthenticationService {
 
     @Override
     @Transactional
-    public ResponseDto register(UserDto userDto) {
-        ResponseDto responseDto = new ResponseDto();
+    public ResponseDto<UserDto> register(UserDto userDto) {
+        ResponseDto<UserDto> responseDto = new ResponseDto<>();
         // check if user already exist. if exist than authenticate the user
         UserEntity validateUser = userRepository.findEmailUser(userDto.getEmailUser());
         if (validateUser != null) {
             responseDto.setError(Boolean.TRUE);
-            responseDto.setMessage("El correo ingresado se encuentra registrado");
-            responseDto.setStatusCode(HttpStatus.OK.value());
+            responseDto.setMessage("The email is already registered");
+            responseDto.setStatusCode(HttpStatus.CONFLICT);
+            return responseDto;
+        }
+        UserEntity validateUser2 = userRepository.findByNumberDocumentUser(userDto.getNumberDocumentUser());
+        if (validateUser2 != null) {
+            responseDto.setError(Boolean.TRUE);
+            responseDto.setMessage("The document number is already registered");
+            responseDto.setStatusCode(HttpStatus.CONFLICT);
             return responseDto;
         }
 
@@ -62,18 +69,20 @@ public class AuthenticationService implements IAuthenticationService {
             String jwt = jwtService.generateToken(userEntity);
             saveUserToken(jwt, userEntity);
             responseDto.setError(Boolean.FALSE);
-            responseDto.setMessage("Se ha creado el usuario correctamente.");
-            responseDto.setStatusCode(HttpStatus.CREATED.value());
+            responseDto.setMessage("The user has been created successfully.");
+            responseDto.setStatusCode(HttpStatus.CREATED);
+            responseDto.setData(userDto);
         } catch (Exception e) {
             responseDto.setError(Boolean.TRUE);
-            responseDto.setMessage("Ha ocurrido un error interno, intenta de nuevo más tarde.");
-            log.error("Ha ocurrido un error:: ", e);
+            responseDto.setMessage("An error has occurred:: " + e.getMessage());
+            responseDto.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+            log.error("An error has occurred:: ", e);
         }
         return responseDto;
     }
 
     @Override
-    public ResponseDto authenticate(LoginRequestDto request) {
+    public ResponseDto<LoginRequestDto> authenticate(LoginRequestDto request) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getEmailUser(),
@@ -81,7 +90,7 @@ public class AuthenticationService implements IAuthenticationService {
                 )
         );
 
-        ResponseDto loginResponseDto = new ResponseDto();
+        ResponseDto<LoginRequestDto> loginResponseDto = new ResponseDto<>();
         UserEntity userEntity = userRepository.findEmailUser(request.getEmailUser());
         String jwt = jwtService.generateToken(userEntity);
         revokeAllTokenByUser(userEntity);
@@ -90,12 +99,12 @@ public class AuthenticationService implements IAuthenticationService {
         if (passwordEncoder.matches(request.getPassword(), userEntity.getPassword())) {
             loginResponseDto.setError(Boolean.FALSE);
             loginResponseDto.setToken(jwt);
-            loginResponseDto.setMessage("Se ha iniciado la sesión correctamente.");
-            loginResponseDto.setStatusCode(HttpStatus.OK.value());
+            loginResponseDto.setMessage("User logged in successfully.");
+            loginResponseDto.setStatusCode(HttpStatus.OK);
         } else {
             loginResponseDto.setError(Boolean.TRUE);
-            loginResponseDto.setMessage("Credenciales de usuario invalidas.");
-            loginResponseDto.setStatusCode(HttpStatus.UNAUTHORIZED.value());
+            loginResponseDto.setMessage("User credentials are incorrect.");
+            loginResponseDto.setStatusCode(HttpStatus.UNAUTHORIZED);
         }
         return loginResponseDto;
     }

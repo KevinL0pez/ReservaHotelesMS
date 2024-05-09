@@ -9,6 +9,7 @@ import org.reservahoteles.dto.HotelRequestDto;
 import org.reservahoteles.dto.ResponseDto;
 import org.reservahoteles.service.IHotelService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -26,39 +27,101 @@ public class HotelController {
 
     @GetMapping("/gethotels/all")
     @SecurityRequirement(name = "bearerAuth")
-    public List<HotelResponseDto> getListHotels() {
-        return iHotelService.getHotels();
+    public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotels() {
+
+        ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
+
+        List<HotelResponseDto> hoteles = iHotelService.getHotels();
+        if (hoteles.isEmpty()){
+            responseDto.setMessage("Hotels not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotels found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hoteles);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
+
     }
 
     @GetMapping("/gethotels/active")
-    public List<HotelResponseDto> getListActiveHotels() {
-        return iHotelService.getActiveHotels();
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListActiveHotels() {
+        ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
+
+        List<HotelResponseDto> hoteles = iHotelService.getActiveHotels();
+        if (hoteles.isEmpty()){
+            responseDto.setMessage("Hotels not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotels found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hoteles);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
     }
 
     @GetMapping("/gethotels/department")
-    public List<HotelResponseDto> getListHotelsByDepartment(@RequestParam Long idDepartment) {
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotelsByDepartment(@RequestParam Long idDepartment) {
 
-        return iHotelService.getActiveHotelsByDepartment(idDepartment);
+        ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
+
+        List<HotelResponseDto> hoteles = iHotelService.getActiveHotelsByDepartment(idDepartment);
+        if (hoteles == null || hoteles.isEmpty()){
+            responseDto.setMessage("Hotels not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotels found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hoteles);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
     }
 
     @GetMapping("/gethotels/municipality")
-    public List<HotelResponseDto> getListHotelsByMunicipality(@RequestParam Long idMunicipality) {
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotelsByMunicipality(@RequestParam Long idMunicipality) {
 
-        return iHotelService.getActiveHotelsByMunicipality(idMunicipality);
+        ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
+
+        List<HotelResponseDto> hoteles = iHotelService.getActiveHotelsByMunicipality(idMunicipality);
+        if (hoteles == null || hoteles.isEmpty()){
+            responseDto.setMessage("Hotels not found");
+            responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+        }else{
+            responseDto.setMessage("Hotels found successfully");
+            responseDto.setStatusCode(HttpStatus.OK);
+            responseDto.setData(hoteles);
+            responseDto.setError(false);
+            return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
     }
 
     @CrossOrigin("*")
     @PostMapping("/createhotel")
-    public ResponseEntity<ResponseDto> createHotel(@Valid @RequestBody HotelRequestDto hotelRequestDto, BindingResult bindingResult) {
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ResponseDto<HotelRequestDto>> createHotel(@Valid @RequestBody HotelRequestDto hotelRequestDto, BindingResult bindingResult) {
 
-        ResponseDto response = new ResponseDto();
+        ResponseDto<HotelRequestDto> response = new ResponseDto<>();
 
         // Si hay errores de validación, devolver mensajes de error
         if (bindingResult.hasErrors()) {
             List<String> errors = new ArrayList<>();
             bindingResult.getAllErrors().forEach(error -> errors.add(error.getDefaultMessage()));
             response.setMessage(errors.toString());
-            response.setStatusCode(HttpStatus.BAD_REQUEST.value());
+            response.setStatusCode(HttpStatus.BAD_REQUEST);
             response.setError(true);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
         }

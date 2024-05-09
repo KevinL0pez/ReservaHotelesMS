@@ -1,11 +1,14 @@
 package org.reservahoteles.dto;
 
 import lombok.Data;
+import org.springframework.http.HttpStatus;
+import java.util.Set;
 
 @Data
-public class ResponseDto {
+public class ResponseDto<T> {
     private String token;
     private Boolean error;
     private String message;
-    private Integer statusCode;
+    private HttpStatus statusCode;
+    private T data;
 }
