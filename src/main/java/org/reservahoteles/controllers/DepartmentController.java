@@ -25,7 +25,6 @@ public class DepartmentController {
 
     @CrossOrigin("*")
     @GetMapping("/getdepartments/all")
-//    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<DepartmentDto>>> getListDepartments() {
 
         ResponseDto<List<DepartmentDto>> responseDto = new ResponseDto<>();

@@ -27,7 +27,6 @@ public class MunicipalityController {
 
 
     @GetMapping("/getmunicipalities/all")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<MunicipalityDto>>> getListDepartments() {
 
         ResponseDto<List<MunicipalityDto>> responseDto = new ResponseDto<>();
@@ -47,7 +46,6 @@ public class MunicipalityController {
     }
 
     @GetMapping("/getmunicipalities/department")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<MunicipalityDto>>> getListMunicipalitiesByDepartment(@RequestParam Long idDepartment) {
 
         ResponseDto<List<MunicipalityDto>> responseDto = new ResponseDto<>();

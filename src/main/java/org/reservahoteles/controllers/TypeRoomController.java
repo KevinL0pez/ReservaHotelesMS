@@ -25,7 +25,6 @@ public class TypeRoomController {
     private final ITypeRoomService iTypeRoomService;
 
     @GetMapping("/getTypeRooms/all")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<TypeRoomDto>>> getListTypeRooms() {
 
         ResponseDto<List<TypeRoomDto>> responseDto = new ResponseDto<>();
