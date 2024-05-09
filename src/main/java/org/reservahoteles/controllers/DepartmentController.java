@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.reservahoteles.dto.DepartmentDto;
 import org.reservahoteles.service.IDepartmentService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +19,7 @@ public class DepartmentController {
 
     private final IDepartmentService iDepartmentService;
 
-
+    @CrossOrigin("*")
     @GetMapping("/getdepartments/all")
     public List<DepartmentDto> getListDepartments() {
         return iDepartmentService.getDepartments();
