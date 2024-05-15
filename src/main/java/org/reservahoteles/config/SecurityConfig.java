@@ -40,7 +40,11 @@ public class SecurityConfig {
                                 "/v3/api-docs/**",
                                 "/swagger-ui/**",
                                 "/swagger-ui.html",
-                                "/departments/**"
+                                "/departments/**",
+                                "/municipalities/**",
+                                "/hotels/gethotels/**",
+                                "/hotelRooms/getHotelRooms/**",
+                                "/typeRooms/**"
                         )
                             .permitAll()
                             .requestMatchers("/admin_only/**").hasAuthority("ADMIN")

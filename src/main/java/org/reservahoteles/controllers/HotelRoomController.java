@@ -24,7 +24,6 @@ public class HotelRoomController {
     private final IHotelRoomService iHotelRoomService;
 
     @GetMapping("/getHotelRooms/all")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRooms() {
         List<HotelRoomResponseDto> hotelRooms = iHotelRoomService.getHotelRooms();
         ResponseDto<List<HotelRoomResponseDto>> responseDto = new ResponseDto<>();
@@ -44,7 +43,6 @@ public class HotelRoomController {
     }
 
     @GetMapping("/getHotelRooms/hotel")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRoomsByHotel(@RequestParam Long idHotel) {
 
         List<HotelRoomResponseDto> hotelRooms = iHotelRoomService.getHotelRoomsByHotel(idHotel);

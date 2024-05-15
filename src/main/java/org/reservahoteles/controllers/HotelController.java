@@ -26,7 +26,6 @@ public class HotelController {
     private final IHotelService iHotelService;
 
     @GetMapping("/gethotels/all")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotels() {
 
         ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
@@ -48,7 +47,6 @@ public class HotelController {
     }
 
     @GetMapping("/gethotels/active")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListActiveHotels() {
         ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
 
@@ -68,7 +66,6 @@ public class HotelController {
     }
 
     @GetMapping("/gethotels/department")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotelsByDepartment(@RequestParam Long idDepartment) {
 
         ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
@@ -89,7 +86,6 @@ public class HotelController {
     }
 
     @GetMapping("/gethotels/municipality")
-    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotelsByMunicipality(@RequestParam Long idMunicipality) {
 
         ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
