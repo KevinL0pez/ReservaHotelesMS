@@ -23,6 +23,7 @@ public class HotelRoomEntity {
     @Column(name = "price_per_night")
     private Double pricePerNight;
 
+    //Deprecated
     @Column(name= "is_available")
     private boolean isAvailable = true;
 
