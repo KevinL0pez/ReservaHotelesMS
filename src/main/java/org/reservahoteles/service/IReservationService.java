@@ -22,4 +22,6 @@ public interface IReservationService {
 
     ResponseDto<ReservationRequestDto> createReservation(ReservationRequestDto reservationRequestDto);
 
+    List<ReservationResponseDto> getFilteredReservationsByHotelId(Long idHotel);
+
 }

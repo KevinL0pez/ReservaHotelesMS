@@ -142,8 +142,7 @@ public class ReservationService implements IReservationService {
 
         ResponseDto<ReservationRequestDto> responseDto = new ResponseDto<>();
 
-        //Filtrar por el hotel y la habitacion del hotel, si tiene alguna reservación activa, donde la fecha de checkin y de checkout
-        //interfiera con la fecha de checkin y de checkout de la nueva reservación
+        //Filter by the hotel and the hotel room, if you have an active reservation, where the checkin and checkout date interferes with the checkin and checkout date of the new reservation
         boolean reservationsValidations = false;
         Long idHotelRoom = reservationRequestDto.getIdHotelRoom();
         Long idHotel = reservationRequestDto.getIdHotel();
@@ -160,7 +159,7 @@ public class ReservationService implements IReservationService {
             }
         }
 
-        //En caso de que la haya, retornar un mensaje de error, de lo contrario, crea la reservación
+        //If there is, return an error message, otherwise create the reservation
         if (reservationsValidations) {
             responseDto.setMessage("The room is already reserved for the selected dates");
             responseDto.setStatusCode(HttpStatus.CONFLICT);
@@ -229,7 +228,7 @@ public class ReservationService implements IReservationService {
                 newReservation.setCheckInDatetime(reservationRequestDto.getCheckInDatetime());
                 newReservation.setCheckOutDatetime(reservationRequestDto.getCheckOutDatetime());
 
-                //Calcular cuantas noches son entre el checkin y checkout, para asi poder calcular el precio final segun el price per night del hotel room
+                //Calculate how many nights there are between checkin and checkout, in order to calculate the final price according to the price per night of the hotel room
 
                 long nightsReservation = reservationRequestDto.getCheckInDatetime().until(reservationRequestDto.getCheckOutDatetime(), java.time.temporal.ChronoUnit.DAYS);
 
@@ -246,6 +245,27 @@ public class ReservationService implements IReservationService {
                 return responseDto;
             }
         }
+    }
+
+    @Override
+    public List<ReservationResponseDto> getFilteredReservationsByHotelId(Long idHotel) {
+        return reservationRepository.findByHotelIdHotel(idHotel).stream()
+                .map(reservation -> {
+                    HotelRoomResponseDto hotelRoomResponseDto = getHotelRoomResponseDto(reservation);
+                    HotelResponseDtoV2 hotelResponseDto = getHotelResponseDto(reservation);
+
+                    ReservationResponseDto reservationResponseDto = new ReservationResponseDto();
+                    reservationResponseDto.setIdReservation(reservation.getIdReservation());
+                    reservationResponseDto.setUser(reservation.getUser());
+                    reservationResponseDto.setHotel(hotelResponseDto);
+                    reservationResponseDto.setHotelRoomEntity(hotelRoomResponseDto);
+                    reservationResponseDto.setCheckInDatetime(reservation.getCheckInDatetime());
+                    reservationResponseDto.setCheckOutDatetime(reservation.getCheckOutDatetime());
+                    reservationResponseDto.setTotalPrice(reservation.getTotalPrice());
+                    reservationResponseDto.setStatusReservation(reservation.getStatusReservation());
+
+                    return reservationResponseDto;
+                }).collect(Collectors.toList());
     }
 
     private static HotelResponseDtoV2 getHotelResponseDto(ReservationEntity reservation) {

@@ -26,4 +26,6 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
     List<ReservationEntity> findReservationsByCheckinAndCheckoutDates(
             @Param("checkInDatetime") LocalDateTime checkInDatetime,
             @Param("checkOutDateTime") LocalDateTime checkOutDateTime);
+
+    List<ReservationEntity> findByHotelIdHotel(Long idHotel);
 }
