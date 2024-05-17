@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,6 +100,49 @@ public class ReservationController {
             responseDto.setData(reservations);
             responseDto.setError(false);
             return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+        }
+    }
+
+
+    @GetMapping("/getReservations/checkinDate&checkoutDate")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationsByCheckinAndCheckoutDates(
+            @RequestParam(required = false) String checkInDatetime,
+            @RequestParam(required = false) String checkOutDateTime) {
+
+        if(checkInDatetime == null || checkOutDateTime == null) {
+            ResponseDto<List<ReservationResponseDto>> responseDto = new ResponseDto<>();
+            responseDto.setMessage("Check in and check out dates must not be null");
+            responseDto.setStatusCode(HttpStatus.BAD_REQUEST);
+            responseDto.setError(true);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
+        }
+
+        try {
+
+            LocalDateTime checkIn = LocalDateTime.parse(checkInDatetime);
+            LocalDateTime checkOut = LocalDateTime.parse(checkOutDateTime);
+
+            List<ReservationResponseDto> reservations = iReservationService.getReservationsByCheckinAndCheckoutDates(checkIn, checkOut);
+            ResponseDto<List<ReservationResponseDto>> responseDto = new ResponseDto<>();
+            if (reservations.isEmpty()) {
+                responseDto.setMessage("Reservations not found");
+                responseDto.setStatusCode(HttpStatus.NOT_FOUND);
+                responseDto.setError(false);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseDto);
+            } else {
+                responseDto.setMessage("Reservations found successfully");
+                responseDto.setStatusCode(HttpStatus.OK);
+                responseDto.setData(reservations);
+                responseDto.setError(false);
+                return ResponseEntity.status(HttpStatus.OK).body(responseDto);
+            }
+        } catch(IllegalArgumentException | DateTimeParseException e) {
+            ResponseDto<List<ReservationResponseDto>> responseDto = new ResponseDto<>();
+            responseDto.setMessage("Invalid date format");
+            responseDto.setStatusCode(HttpStatus.BAD_REQUEST);
+            responseDto.setError(true);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseDto);
         }
     }
 

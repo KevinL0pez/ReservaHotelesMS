@@ -6,6 +6,7 @@ import org.reservahoteles.dto.*;
 import org.reservahoteles.jpa.entities.*;
 import org.reservahoteles.jpa.repositories.*;
 import org.reservahoteles.service.IReservationService;
+import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
@@ -112,6 +113,29 @@ public class ReservationService implements IReservationService {
                 }).collect(Collectors.toList());
 
     }
+
+
+    @Override
+    public List<ReservationResponseDto> getReservationsByCheckinAndCheckoutDates(LocalDateTime checkInDatetime, LocalDateTime checkOutDateTime){
+        return reservationRepository.findReservationsByCheckinAndCheckoutDates(checkInDatetime, checkOutDateTime).stream()
+                .map(reservation -> {
+                    HotelRoomResponseDto hotelRoomResponseDto = getHotelRoomResponseDto(reservation);
+                    HotelResponseDtoV2 hotelResponseDto = getHotelResponseDto(reservation);
+
+                    ReservationResponseDto reservationResponseDto = new ReservationResponseDto();
+                    reservationResponseDto.setIdReservation(reservation.getIdReservation());
+                    reservationResponseDto.setUser(reservation.getUser());
+                    reservationResponseDto.setHotel(hotelResponseDto);
+                    reservationResponseDto.setHotelRoomEntity(hotelRoomResponseDto);
+                    reservationResponseDto.setCheckInDatetime(reservation.getCheckInDatetime());
+                    reservationResponseDto.setCheckOutDatetime(reservation.getCheckOutDatetime());
+                    reservationResponseDto.setTotalPrice(reservation.getTotalPrice());
+                    reservationResponseDto.setStatusReservation(reservation.getStatusReservation());
+
+                    return reservationResponseDto;
+                }).collect(Collectors.toList());
+    }
+
 
     @Override
     public ResponseDto<ReservationRequestDto> createReservation(ReservationRequestDto reservationRequestDto) {
