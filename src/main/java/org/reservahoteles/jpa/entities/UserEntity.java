@@ -1,5 +1,6 @@
 package org.reservahoteles.jpa.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -56,6 +57,7 @@ public class UserEntity implements UserDetails {
     private Role role;
 
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<TokenEntity> tokens;
 
     @Column(name = "username")

@@ -1,5 +1,6 @@
 package org.reservahoteles.controllers;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.reservahoteles.dto.ResponseDto;
@@ -22,6 +23,7 @@ public class StatusReservationController {
     private final IStatusReservationService iStatusReservationService;
 
     @GetMapping("/getStatusReservations")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<StatusReservationDto>>> getStatusReservations() {
         List<StatusReservationDto> statusReservations = iStatusReservationService.getStatusReservations();
         ResponseDto<List<StatusReservationDto>> responseDto = new ResponseDto<>();

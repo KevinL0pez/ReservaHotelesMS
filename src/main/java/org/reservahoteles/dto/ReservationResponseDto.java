@@ -19,9 +19,9 @@ public class ReservationResponseDto {
 
     private UserEntity user;
 
-    private HotelEntity hotel;
+    private HotelResponseDtoV2 hotel;
 
-    private HotelRoomEntity hotelRoomEntity;
+    private HotelRoomResponseDto hotelRoomEntity;
 
     private LocalDateTime checkInDatetime;
 

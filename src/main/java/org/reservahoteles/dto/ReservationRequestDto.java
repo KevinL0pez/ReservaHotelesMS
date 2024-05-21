@@ -25,7 +25,5 @@ public class ReservationRequestDto {
 
     private LocalDateTime checkOutDatetime;
 
-    private Double totalPrice;
-
     private Long idStatusReservation;
 }
