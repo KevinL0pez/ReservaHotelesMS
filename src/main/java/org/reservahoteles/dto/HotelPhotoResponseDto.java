@@ -5,14 +5,12 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.reservahoteles.jpa.entities.HotelEntity;
 
+import java.util.UUID;
+
 @Data
 public class HotelPhotoResponseDto {
 
-    private Long idHotelPhoto;
-
+    private UUID idHotelPhoto;
     private String photoUrl;
-
-    private boolean active = true;
-
-    //private HotelEntity hotel;
+//    private HotelEntity hotel;
 }

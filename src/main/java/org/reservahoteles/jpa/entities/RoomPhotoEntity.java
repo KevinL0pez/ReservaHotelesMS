@@ -10,13 +10,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "HotelPhotos")
-public class HotelPhotoEntity {
-
+@Table(name = "RoomPhotos")
+public class RoomPhotoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "id_hotel_photo")
-    private UUID idHotelPhoto;
+    @Column(name = "id_room_photo")
+    private UUID idRoomPhoto;
 
     @Column(name = "photo_name")
     private String photoName;
@@ -24,8 +23,8 @@ public class HotelPhotoEntity {
     @Column(name = "photo_url")
     private String photoUrl;
 
-    @NotNull(message = "The hotel must not be null")
+    @NotNull(message = "The room must not be null")
     @ManyToOne
-    @JoinColumn(name = "id_hotel")
-    private HotelEntity hotel;
+    @JoinColumn(name = "id_room")
+    private HotelRoomEntity room;
 }

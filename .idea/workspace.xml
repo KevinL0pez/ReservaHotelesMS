@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfed4d1e-c9f6-4025-83f4-6c2d74a732b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/DepartmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/DepartmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelRoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/MunicipalityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/MunicipalityController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/TypeRoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/TypeRoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/ReservaHotelesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelPhotoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/controllers/HotelPhotoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/HotelPhotoResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/dto/HotelPhotoResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/HotelPhotoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/entities/HotelPhotoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/HotelPhotoRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/jpa/repositories/HotelPhotoRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelPhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/IHotelPhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelPhotoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelPhotoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <list id="2b867c90-b627-4d1c-bdb9-5128e8088ff5" name="Changes by bcaceres" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +59,7 @@
     "HTTP Request.All in generated-requests.executor": "Run",
     "HTTP Request.ReservaHotelesApplication | #1.executor": "Run",
     "HTTP Request.ReservaHotelesApplication | #2.executor": "Run",
+    "HTTP Request.ReservaHotelesApplication | #3.executor": "Run",
     "HTTP Request.generated-requests | #2.executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
@@ -101,7 +105,7 @@
     <configuration name="ReservaHotelesApplication | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/ReservaHotelesApplication.http" index="2" requestIdentifier="#2" runType="Run single request">
       <method v="2" />
     </configuration>
-    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="2" requestIdentifier="#2" runType="Run single request">
+    <configuration name="ReservaHotelesApplication | #3" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/ReservaHotelesApplication.http" index="3" requestIdentifier="#3" runType="Run single request">
       <method v="2" />
     </configuration>
     <configuration name="ReservaHotelesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -121,6 +125,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ReservaHotelesApplication" />
+        <item itemvalue="HTTP Request.ReservaHotelesApplication | #3" />
         <item itemvalue="Application.ReservaHotelesApplication" />
       </list>
     </recent_temporary>
@@ -151,6 +156,10 @@
       <workItem from="1712974319589" duration="6065000" />
       <workItem from="1713482048014" duration="3825000" />
       <workItem from="1713641524648" duration="72000" />
+      <workItem from="1715639313135" duration="595000" />
+      <workItem from="1715728466843" duration="3469000" />
+      <workItem from="1715901002331" duration="4789000" />
+      <workItem from="1716259886267" duration="3977000" />
     </task>
     <servers />
   </component>
@@ -164,9 +173,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/JwtService.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelPhotoService.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelPhotoService.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/reservahoteles/service/implementation/HotelPhotoService.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

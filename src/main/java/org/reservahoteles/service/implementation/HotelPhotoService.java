@@ -1,5 +1,9 @@
 package org.reservahoteles.service.implementation;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.Singleton;
+import com.cloudinary.utils.ObjectUtils;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.reservahoteles.dto.*;
@@ -11,20 +15,20 @@ import org.reservahoteles.service.IHotelPhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class HotelPhotoService implements IHotelPhotoService{
+public class HotelPhotoService implements IHotelPhotoService {
 
-    @Autowired
     private final HotelRepository hotelRepository;
-
-    @Autowired
+    private final Cloudinary cloudinary = Singleton.getCloudinary();
     private final HotelPhotoRepository hotelPhotoRepository;
 
 
@@ -41,7 +45,6 @@ public class HotelPhotoService implements IHotelPhotoService{
 
                         hotelPhotoResponseDto.setIdHotelPhoto(hotelPhotoEntity.getIdHotelPhoto());
                         hotelPhotoResponseDto.setPhotoUrl(hotelPhotoEntity.getPhotoUrl());
-                        hotelPhotoResponseDto.setActive(hotelPhotoEntity.isActive());
                         return hotelPhotoResponseDto;
                     })
                     .collect(Collectors.toList());
@@ -49,11 +52,12 @@ public class HotelPhotoService implements IHotelPhotoService{
     }
 
     @Override
-    public ResponseDto<HotelPhotoRequestDto> createHotelPhoto(HotelPhotoRequestDto hotelPhotoRequestDto) {
-        ResponseDto<HotelPhotoRequestDto> responseDto = new ResponseDto<>();
+    @Transactional
+    public ResponseDto<ImageHotelResponseDto> createHotelPhoto(Long idHotel, MultipartFile file) {
+        ResponseDto<ImageHotelResponseDto> responseDto = new ResponseDto<>();
         HotelPhotoEntity hotelPhoto = new HotelPhotoEntity();
 
-        Optional<HotelEntity> hotelEntityOptional = hotelRepository.findById(hotelPhotoRequestDto.getIdHotel());
+        Optional<HotelEntity> hotelEntityOptional = hotelRepository.findById(idHotel);
 
         if (hotelEntityOptional.isEmpty()){
             responseDto.setMessage("Hotel not found");
@@ -61,19 +65,30 @@ public class HotelPhotoService implements IHotelPhotoService{
             responseDto.setStatusCode(HttpStatus.NOT_FOUND);
             return responseDto;
         }
-        HotelEntity hotel = hotelEntityOptional.get();
 
-        hotelPhoto.setHotel(hotel);
-        hotelPhoto.setPhotoUrl(hotelPhotoRequestDto.getPhotoUrl());
+        try {
+            Map uploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
+            String url = uploadResult.get("secure_url").toString();
+            HotelEntity hotel = hotelEntityOptional.get();
+            hotelPhoto.setHotel(hotel);
+            hotelPhoto.setPhotoName(file.getOriginalFilename());
+            hotelPhoto.setPhotoUrl(url);
+            hotelPhotoRepository.save(hotelPhoto);
 
-        hotelPhotoRepository.save(hotelPhoto);
+            ImageHotelResponseDto imageHotelResponseDto = new ImageHotelResponseDto();
+            imageHotelResponseDto.setUrlImage(url);
+            responseDto.setMessage("Hotel Photo created successfully");
+            responseDto.setError(Boolean.FALSE);
+            responseDto.setStatusCode(HttpStatus.CREATED);
+            responseDto.setData(imageHotelResponseDto);
 
-        responseDto.setMessage("Hotel Photo created successfully");
-        responseDto.setError(Boolean.FALSE);
-        responseDto.setStatusCode(HttpStatus.CREATED);
-        responseDto.setData(hotelPhotoRequestDto);
-
+            log.info("The hotel " + idHotel + " successfully uploaded the file: " + url);
+        } catch (Exception ex) {
+            responseDto.setError(Boolean.TRUE);
+            responseDto.setStatusCode(HttpStatus.INTERNAL_SERVER_ERROR);
+            log.error("The hotel " + idHotel + " failed to load to Cloudinary the image file: " + file.getName());
+            log.error(ex.getMessage());
+        }
         return responseDto;
-
     }
 }
