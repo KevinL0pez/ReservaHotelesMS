@@ -33,7 +33,7 @@ public class PDFUtil {
         String[] columns = {"ID Reservation", "Number Document User", "User Name", "Hotel Name", "Room ID", "Price Per Night",
                 "Check-In Date", "Check-Out Date", "Total Price", "Status"};
 
-        Paragraph titlePage = new Paragraph("Reporte reserva de Hoteles");
+        Paragraph titlePage = new Paragraph("Hotel reservation report");
 
         titlePage.setAlignment(Element.ALIGN_CENTER);
 
