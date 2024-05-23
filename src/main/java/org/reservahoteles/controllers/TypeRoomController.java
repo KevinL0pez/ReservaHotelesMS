@@ -9,6 +9,7 @@ import org.reservahoteles.dto.TypeRoomDto;
 import org.reservahoteles.service.ITypeRoomService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +25,7 @@ public class TypeRoomController {
 
     private final ITypeRoomService iTypeRoomService;
 
+    @CrossOrigin("*")
     @GetMapping("/getTypeRooms/all")
     public ResponseEntity<ResponseDto<List<TypeRoomDto>>> getListTypeRooms() {
 

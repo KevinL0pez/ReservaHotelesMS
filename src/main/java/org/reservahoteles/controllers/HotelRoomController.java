@@ -23,6 +23,7 @@ public class HotelRoomController {
 
     private final IHotelRoomService iHotelRoomService;
 
+    @CrossOrigin("*")
     @GetMapping("/getHotelRooms/all")
     public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRooms() {
         List<HotelRoomResponseDto> hotelRooms = iHotelRoomService.getHotelRooms();
@@ -42,6 +43,7 @@ public class HotelRoomController {
         }
     }
 
+    @CrossOrigin("*")
     @GetMapping("/getHotelRooms/hotel")
     public ResponseEntity<ResponseDto<List<HotelRoomResponseDto>>> getListHotelRoomsByHotel(@RequestParam Long idHotel) {
 

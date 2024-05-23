@@ -25,6 +25,7 @@ public class HotelController {
 
     private final IHotelService iHotelService;
 
+    @CrossOrigin("*")
     @GetMapping("/gethotels/all")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotels() {
 
@@ -46,6 +47,7 @@ public class HotelController {
 
     }
 
+    @CrossOrigin("*")
     @GetMapping("/gethotels/active")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListActiveHotels() {
         ResponseDto<List<HotelResponseDto>> responseDto = new ResponseDto<>();
@@ -65,6 +67,7 @@ public class HotelController {
         }
     }
 
+    @CrossOrigin("*")
     @GetMapping("/gethotels/department")
     public ResponseEntity<ResponseDto<List<HotelResponseDto>>> getListHotelsByDepartment(@RequestParam Long idDepartment) {
 

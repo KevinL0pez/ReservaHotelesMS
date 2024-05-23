@@ -65,13 +65,10 @@ public class AuthenticationService implements IAuthenticationService {
             userEntity.setRole(userDto.getRole());
             userEntity.setUsername(userDto.getEmailUser());
             userEntity.setPassword(passwordEncoder.encode(userDto.getPasswordUser()));
-            userEntity = userRepository.save(userEntity);
-            String jwt = jwtService.generateToken(userEntity);
-            saveUserToken(jwt, userEntity);
+            userRepository.save(userEntity);
             responseDto.setError(Boolean.FALSE);
             responseDto.setMessage("The user has been created successfully.");
             responseDto.setStatusCode(HttpStatus.CREATED);
-            responseDto.setData(userDto);
         } catch (Exception e) {
             responseDto.setError(Boolean.TRUE);
             responseDto.setMessage("An error has occurred:: " + e.getMessage());

@@ -21,6 +21,7 @@ public class HotelPhotoController {
 
     private final IHotelPhotoService iHotelPhotoService;
 
+    @CrossOrigin("*")
     @GetMapping("/getHotelPhotos/hotel")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<HotelPhotoResponseDto>>> getListHotelPhotosByHotel(@RequestParam Long idHotel) {

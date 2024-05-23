@@ -1,6 +1,7 @@
 package org.reservahoteles.controllers;
 
 import com.itextpdf.text.DocumentException;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.reservahoteles.dto.ReservationResponseDto;
@@ -12,10 +13,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.ByteArrayOutputStream;
 import java.time.LocalDateTime;
@@ -32,7 +30,9 @@ public class ReservationReportPdfController {
     @Autowired
     private final IReservationService iReservationService;
 
+    @CrossOrigin("*")
     @PostMapping("/generateReportPdf")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<byte[]> exportPdf(@RequestBody Map request) throws DocumentException {
         if (request == null || request.isEmpty()) {
             return ResponseEntity.badRequest().build();

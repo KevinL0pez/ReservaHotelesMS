@@ -25,6 +25,7 @@ public class ReservationController {
 
     private final IReservationService iReservationService;
 
+    @CrossOrigin("*")
     @GetMapping("/getReservations/all")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getAllReservationsRest() {
@@ -46,6 +47,7 @@ public class ReservationController {
         }
     }
 
+    @CrossOrigin("*")
     @GetMapping("/getReservations/statusId")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationsByStatusId(@RequestParam Long idStatusReservation) {
@@ -65,6 +67,7 @@ public class ReservationController {
         }
     }
 
+    @CrossOrigin("*")
     @GetMapping("/getReservations/userId")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationByUserId(@RequestParam Long idUser) {
@@ -84,6 +87,7 @@ public class ReservationController {
         }
     }
 
+    @CrossOrigin("*")
     @GetMapping("/getReservations/userId&statusId")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationsByUserIdAndStatusId(@RequestParam Long idUser, @RequestParam Long idStatusReservation) {
@@ -104,6 +108,7 @@ public class ReservationController {
     }
 
 
+    @CrossOrigin("*")
     @GetMapping("/getReservations/checkinDate&checkoutDate")
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<ResponseDto<List<ReservationResponseDto>>> getReservationsByCheckinAndCheckoutDates(
